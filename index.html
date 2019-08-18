@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0
+        }
+    </style>
+</head>
+<body>
+<div class="bb">
+    <div class="btn"></div>
+    <canvas></canvas>
+</div>
+</body>
+</html>
+<script src="bezierCurveAnimation.js"></script>
+<script>
+    const canvas = document.querySelector('canvas');
+    const width = 1920;
+    const height = 1080;
+    canvas.setAttribute('width', width);
+    canvas.setAttribute('height',height);
+    let points = [
+        {x:0,y:1}, // 开始点
+        {x:0.25,y:0.25}, // 控制点
+        {x:0.75,y:0.75}, // 控制点
+        {x:1,y:0} // 终点
+    ];
+    let percent = 0; // 描绘比例
+    let timg = 0; // 记录描绘完成的次数
+    let reverse = true;
+    let bezier = new Bezier({canvas: canvas, width: width, height: height}, points, 0.2);
+    function animate() {
+        let color = reverse ? '#00b4e6' : '#fff';
+        if (timg % 2 === 0) {
+            reverse = true;
+            bezier.clearRect()
+        } else {
+            reverse = false
+        }
+        bezier.draw(color, percent);
+        percent = percent > 70 ? (percent + 0.8) % 100 : (percent + 0.5) % 100; // 控制描绘的速度
+        if (Math.ceil(percent) === 100) {
+            timg++
+        }
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
