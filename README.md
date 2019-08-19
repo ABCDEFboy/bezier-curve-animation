@@ -1,5 +1,5 @@
 # bezier-curve-animation
-动态绘制贝塞尔虚线动画效果
+动态绘制贝塞尔虚线动画效果，支持自适应、支持二阶三阶贝赛尔曲线、支持动画结束回调函数
 ### 使用方法
 `let bezier = Bezier(canvasObj, points, lineWidth)`
 ###### 参数说明 #####
