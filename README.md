@@ -19,5 +19,5 @@ let points = [
 let bezier = new Bezier({canvas: canvas, width: width, height: height}, points, 0.2);
 ``` 
 ### 动画效果
-[my-logo.png]: https://raw.githubusercontent.com/ABCDEFboy/bezier-curve-animation/master/GIF.gif "my-logo"
-![my-logo.png]
+[bezier.gif]: https://raw.githubusercontent.com/ABCDEFboy/bezier-curve-animation/master/GIF.gif "bezier.gif"
+![bezier.gif]
